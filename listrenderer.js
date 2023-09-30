@@ -10,19 +10,22 @@ export function construct(list, container, itemRenderer) {
       }
     },
     sort(sortBy, sortDir) {
-      this.sortBy = sortBy;
-
-      if (sortDir !== undefined) {
+      
+      if (sortDir) {
         this.sortDir = sortDir;
-      } else {
+      } else if( sortBy === this.sortBy ) {
         // hvis this.sortDir var "asc", så sæt den til "desc" - eller omvendt
         if (this.sortDir === "asc") {
           this.sortDir = "desc";
         } else {
           this.sortDir = "asc";
         }
+      } else {
+        this.sortDir = "asc";
       }
 
+      this.sortBy = sortBy;
+      
       console.log(`Sorter efter ${this.sortBy} i retning ${this.sortDir}`);
 
       list.sort((a, b) => {
