@@ -24,6 +24,14 @@ export function construct(memberdata) {
     },
     get isSenior() {
       return this.age >= 18;
+    },
+    get group() {
+      if(this.isJunior) {
+        return "junior";
+      } 
+      if(this.isSenior) {
+        return "senior";
+      }
     }
   }
 

@@ -27,6 +27,13 @@ export function construct(originalData) {
     },
     get isCompetition() {
       return this.type === "competition"
+    },
+    get memberName() {
+      if(this.member !== undefined) {
+        return this.member.name;
+      } else {
+        return undefined;
+      }
     }
 
   };
