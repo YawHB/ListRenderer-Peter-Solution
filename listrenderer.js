@@ -1,9 +1,9 @@
 export function construct(list, container, itemRenderer) {
   const ListRenderer = {
-
+    container: document.querySelector(container),
     render() {
-      const table = document.querySelector("table#members tbody");
-      table.innerHTML = "";
+
+      this.container.innerHTML = "";
       for(const member of list) {
         let aktivStatus = "";
         if(member.active) {
@@ -29,7 +29,7 @@ export function construct(list, container, itemRenderer) {
             <td>${member.age}</td>
             <td>${juniorEllerSenior}</td>
           </tr>`;
-        table.insertAdjacentHTML("beforeend", html);
+        this.container.insertAdjacentHTML("beforeend", html);
       }
     }
   }
