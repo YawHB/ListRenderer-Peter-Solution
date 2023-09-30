@@ -22,6 +22,18 @@ async function initApp() {
   memberList.render();
   const resultList = ListRenderer.construct(results, "table#results tbody", ResultRenderer);
   resultList.render();
+
+  // add sort eventlisteners
+  document.querySelector("#sort-member-name").addEventListener("click", () => memberList.sort("name") );
+  document.querySelector("#sort-member-active").addEventListener("click", () => memberList.sort("active") );
+  document.querySelector("#sort-member-birthday").addEventListener("click", () => memberList.sort("birthday") );
+  document.querySelector("#sort-member-age").addEventListener("click", () => memberList.sort("age") );
+  document.querySelector("#sort-member-group").addEventListener("click", () => memberList.sort("group") );
+
+  document.querySelectorAll("[data-action='sort']").forEach(sortButton => 
+    sortButton.addEventListener("click", () => resultList.sort(sortButton.dataset.sortby))
+  );
+
 }
 
 export function getMember(memberId) {
