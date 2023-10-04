@@ -35,8 +35,8 @@ async function initApp() {
   );
 
   // add filter eventlistener
-  document.querySelector("#membersfilter").addEventListener("change", () => memberList.filter("group",
-  document.querySelector("#membersfilter").value ));
+  document.querySelector("#membersfilter").addEventListener("change", () => 
+    memberList.filter( document.querySelector("#membersfilter").value ));
 
 }
 

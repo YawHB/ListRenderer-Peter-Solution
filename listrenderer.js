@@ -5,7 +5,14 @@ export function construct(list, container, itemRenderer) {
     itemRenderer: itemRenderer,
     render() {
       this.container.innerHTML = "";
-      const filteredList = this.items.filter(item => item[this.filterProperty] == this.filterValue);
+      const filteredList = this.items.filter(item => {
+        if(this.filterValue === "all") {
+          return true;
+        } else {
+          //console.log(`Tjek om ${this.filterProperty} er ${this.filterValue} ? Den er: ${item[this.filterProperty]}`);
+          return item[this.filterProperty] == this.filterValue;
+        }
+      } );
       for (const item of filteredList) {
         const html = this.itemRenderer.render(item);
         this.container.insertAdjacentHTML("beforeend", html);
@@ -49,9 +56,17 @@ export function construct(list, container, itemRenderer) {
       this.render();
     },
     filter(filterProperty, filterValue) {
-      this.filterProperty = filterProperty;
-      this.filterValue = filterValue;
-      console.log(`filter: property: ${filterProperty} value: ${filterValue}`);
+      if(filterProperty.includes(":") && filterValue === undefined) {
+        const part = filterProperty.split(":");
+        this.filterProperty = part[0];
+        this.filterValue = part[1];
+      } else {
+        this.filterProperty = filterProperty;
+        this.filterValue = filterValue;
+      }
+
+
+      console.log(`filter: property: ${this.filterProperty} value: ${this.filterValue}`);
 
       this.render()
     }
