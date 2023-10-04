@@ -46,6 +46,11 @@ export function construct(list, container, itemRenderer) {
 
       this.render();
     },
+    filter(filterProperty, filterValue) {
+      this.filterProperty = filterProperty;
+      this.filterValue = filterValue;
+      console.log(`filter: property: ${filterProperty} value: ${filterValue}`);
+    }
   };
 
   return ListRenderer;

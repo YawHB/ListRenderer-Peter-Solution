@@ -34,6 +34,10 @@ async function initApp() {
     sortButton.addEventListener("click", () => resultList.sort(sortButton.dataset.sortby))
   );
 
+  // add filter eventlistener
+  document.querySelector("#membersfilter").addEventListener("change", () => memberList.filter("group",
+  document.querySelector("#membersfilter").value ));
+
 }
 
 export function getMember(memberId) {
