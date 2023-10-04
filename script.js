@@ -38,6 +38,9 @@ async function initApp() {
   document.querySelector("#membersfilter").addEventListener("change", () => 
     memberList.filter( document.querySelector("#membersfilter").value ));
 
+  document.querySelector("#resultsfilter").addEventListener("change", () =>
+    resultList.filter(document.querySelector("#resultsfilter").value ));
+
 }
 
 export function getMember(memberId) {
