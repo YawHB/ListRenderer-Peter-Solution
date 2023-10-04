@@ -1,10 +1,12 @@
 export function construct(list, container, itemRenderer) {
   const ListRenderer = {
+    items: list,
     container: document.querySelector(container),
     itemRenderer: itemRenderer,
     render() {
       this.container.innerHTML = "";
-      for (const item of list) {
+      const filteredList = this.items.filter(item => item[this.filterProperty] == this.filterValue);
+      for (const item of filteredList) {
         const html = this.itemRenderer.render(item);
         this.container.insertAdjacentHTML("beforeend", html);
       }
@@ -28,7 +30,7 @@ export function construct(list, container, itemRenderer) {
       
       console.log(`Sorter efter ${this.sortBy} i retning ${this.sortDir}`);
 
-      list.sort((a, b) => {
+      this.items.sort((a, b) => {
         if (this.sortDir === "asc") {
           if (a[this.sortBy] > b[this.sortBy]) {
             return 1;
@@ -50,6 +52,8 @@ export function construct(list, container, itemRenderer) {
       this.filterProperty = filterProperty;
       this.filterValue = filterValue;
       console.log(`filter: property: ${filterProperty} value: ${filterValue}`);
+
+      this.render()
     }
   };
 
