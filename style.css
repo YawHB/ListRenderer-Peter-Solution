@@ -35,6 +35,10 @@ body {
   border-top: none;
 }
 
+#tabs div table {
+  width: 100%;
+}
+
 .hide {
   display: none;
 }
