@@ -10,4 +10,5 @@ Der er også en række videoer på YouTube der viser hvordan løsningen er komme
 * [Del 1+2 - opbygning af ListRenderer og de to itemRenderers](https://youtu.be/WGoc3dBlSKo)
 * [Del 3 - sortering](https://youtu.be/fLShR7RmPR8)
 * [Del 4 - filtrering](https://youtu.be/GAm8dX3Jx7I)
+* [Del 4x - Ninja-ficering](https://youtu.be/Msn_ojlj9js) - lidt ekstra ninjakode, ingen nye features
 
