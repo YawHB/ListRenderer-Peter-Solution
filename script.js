@@ -2,6 +2,7 @@ import { initTabs } from "./tabs.js";
 import * as member from "./member.js";
 import * as result from "./result.js";
 import * as ListRenderer from "./listRenderer.js";
+import { memberRenderer } from "./member-renderer.js";
 window.addEventListener("load", initApp);
 
 let members = [];
@@ -19,10 +20,10 @@ async function initApp() {
     const memberList = ListRenderer.construct(
         members,
         "table#members tbody",
-        null
+        memberRenderer
     );
     memberList.render();
-    //displayResultList(results);
+    displayResultList(results);
 }
 
 export function getMember(memberId) {
